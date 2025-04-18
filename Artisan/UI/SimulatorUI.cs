@@ -25,7 +25,7 @@ using Condition = Artisan.CraftingLogic.CraftData.Condition;
 
 namespace Artisan.UI
 {
-    public static class SimulatorUI
+    public static partial class SimulatorUI
     {
         public static Recipe? SelectedRecipe;
         internal static string Search = string.Empty;
@@ -154,6 +154,13 @@ namespace Artisan.UI
                     {
                         inManualMode = true;
                         DrawSolverMode();
+                        ImGui.EndTabItem();
+                    }
+
+                    if (ImGui.BeginTabItem("E Sim"))
+                    {
+                        inManualMode = false;
+                        EriVer.DrawCraftInfo();
                         ImGui.EndTabItem();
                     }
 
